@@ -1,45 +1,45 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { useState, useEffect } from 'react'
-import { Button } from '@/components/ui/button'
-import { Menu, X } from 'lucide-react'
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { name: 'About', href: '#about' },
-  { name: 'Features', href: '#features' },
-  { name: 'How it works', href: '#how-it-works' },
-  { name: 'Market Potential', href: '#market-potential'},
-  { name: 'Comparison', href: '#comparison'},
-]
+  { name: "About", href: "#about" },
+  { name: "Features", href: "#features" },
+  { name: "How it works", href: "#how-it-works" },
+  { name: "Market Potential", href: "#market-potential" },
+  { name: "Comparison", href: "#comparison" },
+];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = (e: Event) => {
-      e.preventDefault()
-      const target = e.target as HTMLAnchorElement
-      const targetId = target.getAttribute('href')?.substring(1)
+      e.preventDefault();
+      const target = e.target as HTMLAnchorElement;
+      const targetId = target.getAttribute("href")?.substring(1);
       if (targetId) {
-        const targetElement = document.getElementById(targetId)
+        const targetElement = document.getElementById(targetId);
         if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' })
+          targetElement.scrollIntoView({ behavior: "smooth" });
         }
       }
-    }
+    };
 
-    const links = document.querySelectorAll('a[href^="#"]')
-    links.forEach(link => {
-      link.addEventListener('click', handleScroll)
-    })
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach((link) => {
+      link.addEventListener("click", handleScroll);
+    });
 
     return () => {
-      links.forEach(link => {
-        link.removeEventListener('click', handleScroll)
-      })
-    }
-  }, [])
+      links.forEach((link) => {
+        link.removeEventListener("click", handleScroll);
+      });
+    };
+  }, []);
   const openPdfInNewTab = () => {
     const pdfUrl = "/mna-whitepaper.pdf";
     window.open(pdfUrl, "_blank");
@@ -50,7 +50,9 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="text-2xl font-bold text-blue-600">MNA Hub</Link>
+              <Link href="/" className="text-2xl font-bold text-blue-600">
+                MNA DEFI
+              </Link>
             </div>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -65,7 +67,11 @@ export default function Navbar() {
             ))}
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
-            <Button variant="outline" className="text-blue-600 border-blue-600 hover:bg-blue-50" onClick={openPdfInNewTab}>
+            <Button
+              variant="outline"
+              className="text-blue-600 border-blue-600 hover:bg-blue-50"
+              onClick={openPdfInNewTab}
+            >
               Whitepaper
             </Button>
           </div>
@@ -76,7 +82,11 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
             >
               <span className="sr-only">Open main menu</span>
-              {isOpen ? <X className="block h-6 w-6" /> : <Menu className="block h-6 w-6" />}
+              {isOpen ? (
+                <X className="block h-6 w-6" />
+              ) : (
+                <Menu className="block h-6 w-6" />
+              )}
             </Button>
           </div>
         </div>
@@ -97,13 +107,16 @@ export default function Navbar() {
             ))}
           </div>
           <div className="pt-4 pb-3 border-t border-gray-200">
-            <Button variant="outline" className="ml-3 mb-3 text-blue-600 border-blue-600 hover:bg-blue-50" onClick={openPdfInNewTab}>
+            <Button
+              variant="outline"
+              className="ml-3 mb-3 text-blue-600 border-blue-600 hover:bg-blue-50"
+              onClick={openPdfInNewTab}
+            >
               Whitepaper
             </Button>
           </div>
         </div>
       )}
     </nav>
-  )
+  );
 }
-
