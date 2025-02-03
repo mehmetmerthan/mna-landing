@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -50,8 +51,14 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="text-2xl font-bold text-blue-600">
-                MNA DEFI
+              <Link href="/" className="flex-shrink-0 flex items-center">
+                <Image
+                  src="/mna-navbar.png"
+                  alt="MNA DEFI Logo"
+                  width={120}
+                  height={40}
+                  className="h-8 w-auto"
+                />
               </Link>
             </div>
           </div>
