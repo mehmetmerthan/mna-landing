@@ -23,6 +23,16 @@ export default function Hero() {
               </span>
             </div>
           </div>
+          <div className="block md:hidden">
+            <Image
+              src="/placeholder-logo.png"
+              alt="MNA DEFI Logo"
+              width={50}
+              height={50}
+              className="w-auto h-auto"
+              style={{ borderRadius: "12px" }}
+            />
+          </div>
           <div className="hidden md:block">
             <Image
               src="/mna-hero.png"
@@ -30,7 +40,7 @@ export default function Hero() {
               width={200}
               height={200}
               className="w-auto h-auto"
-              style={{ borderRadius: "12px" }}  
+              style={{ borderRadius: "12px" }}
             />
           </div>
         </div>
